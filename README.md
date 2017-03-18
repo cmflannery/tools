@@ -4,12 +4,12 @@ A collection of useful python scripts. All scripts prefer python, but _should_ r
 ## Directory Structure
 Directory structure should be set up as follows:
 
--> github_directory
---> tools
----> pull_all_git.py
----> other_tools.py
---> repo1
---> repo2
+-> github_directory </br>
+--> tools </br>
+---> pull_all_git.py </br>
+---> other_tools.py </br>
+--> repo1 </br>
+--> repo2 </br>
 
 ### git_tools.py
 Allows adds, commits, pushes, pulls, and status checking of any git repository in current working directory.
