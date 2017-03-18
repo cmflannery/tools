@@ -68,5 +68,7 @@ if __name__ == '__main__':
         subprocess.call('clear')
     except OSError:
         subprocess.call('clc', shell=True)
-
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print('KeyboardInterrupt: Exiting...')
