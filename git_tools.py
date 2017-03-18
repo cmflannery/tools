@@ -31,6 +31,8 @@ def executeGitCmd(command, msg):
         subprocess.call('git push', shell=True)
     if 'status' in command:
         subprocess.call('git status', shell=True)
+    if 'pull' in command:
+        subprocess.call('git pull', shell=True)
 
 
 def iterateDir(repos, dirsincwd, command, msg):
