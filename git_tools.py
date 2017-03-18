@@ -51,7 +51,6 @@ def iterateDir(repos, dirsincwd, command, msg):
 def main():
     args = parsey()
     dirsincwd = os.listdir('.')
-    print(args.msg)
     if args.all:
         iterateDir(dirsincwd, dirsincwd, args.git, args.msg)
         return 0
