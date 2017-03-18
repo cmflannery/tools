@@ -22,6 +22,7 @@ Allows adds, commits, pushes, pulls, and status checking of any git repository i
 * <code>-repo</code> followed by the directories you want to execute git commands on will update those directories only.
  * _not_ case sensitive
 * <code>-A</code> specifies to execute the git command on all repositories in the current working directory.
+ * By default, git_tools will add all changed files in the repo by executing <code>git add -A<c/code>. There is not currently an option to change this.
 * <code>-git</code> allows user to specify git commands to execute
  * Valid Options:
    * <code>add</code>
