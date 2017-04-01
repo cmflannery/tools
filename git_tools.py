@@ -25,7 +25,7 @@ def executeGitCmd(command, msg):
         if msg is None:
             commitcmd = 'git commit -m' + defaultmsg
         else:
-            commitcmd = 'git commit -m' + str(msg)
+            commitcmd = 'git commit -m' + str(msg[0])
         subprocess.call(commitcmd, shell=True)  # update
     if 'push' in command:
         subprocess.call('git push', shell=True)
