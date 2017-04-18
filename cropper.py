@@ -1,4 +1,4 @@
-`from PIL import Image
+from PIL import Image
 import argparse
 import subprocess
 # from future import print_function
@@ -12,6 +12,8 @@ def parsey():
                         help='-batch will be used to perform the same command on multiple images. Functionality tbd.')
     parser.add_argument('-scale', dest='scale', metavar='N', type=float, nargs=1,
                         help='Specifies operation to perform on image: -scale should be followed by scale value. 1 == unity')
+    parser.add_argument('-crop', dest='crop', metavar='N', type=float, nargs=4,
+                        help='Crop from [values] to [values], assumes centered e.g. -crop 1920 1080 1080 1080')
     args = parser.parse_args()
     return args
 
