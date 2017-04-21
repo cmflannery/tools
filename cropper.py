@@ -1,4 +1,4 @@
-`from PIL import Image
+from PIL import Image
 import argparse
 import subprocess
 # from future import print_function
