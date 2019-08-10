@@ -1,7 +1,8 @@
+from __future__ import division, absolute_import, print_function
 from PIL import Image
 import argparse
 import subprocess
-# from future import print_function
+import os
 
 
 def parsey():
@@ -18,8 +19,8 @@ def parsey():
     return args
 
 
-def openImage(fileName):
-    img = Image.open(fileName)
+def openImage(filePath):
+    img = Image.open(filePath)
     return img
 
 
@@ -30,21 +31,33 @@ def scale(img, scale):
     return img
 
 
-def saveImage(img, fileName):
-    newName = 'CROPPED_' + fileName
-    img.save(newName)
+def saveImage(img, fileName, dir=None):
+    imageName = 'edited_' + fileName
+    if dir:
+        imagePath = os.path.join(dir,imageName)
+    else:
+        imagePath = imageName
+    img.save(imagePath)
+
+
+def splitfilePath(filePath):
+    temp = filePath.split('/')
+    fileName = temp[len(temp)-1]
+    dirTemp = temp[:len(temp)-1]
+    fileDir = ''.join(str(s)+'/' for s in dirTemp)
+    return (fileName, fileDir)
 
 
 def main():
     args = parsey()
 
     if not(args.batch):
-        fileName = args.file[0]
-        print(fileName)
-        img = openImage(fileName)
+        filePath = args.file[0]
+        fileName, fileDir = splitfilePath(filePath)
+        img = openImage(filePath)
         imgScaled = scale(img, args.scale[0])
-        saveImage(imgScaled, fileName)
-
+        saveImage(imgScaled, fileName, dir=fileDir)
+    print('Modified images saved in %s' % fileDir)
     print('Done!')
 
 
